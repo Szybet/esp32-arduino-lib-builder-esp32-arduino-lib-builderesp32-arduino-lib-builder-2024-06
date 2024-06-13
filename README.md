@@ -1,2 +1,2 @@
-# esp32-arduino-lib-builder-esp32-arduino-lib-builderesp32-arduino-lib-builder-2024-06
+# esp32-arduino-lib-builder-2024-06 
 Because the commands in that repo doesn't work, or on the esp-idf docs site...
