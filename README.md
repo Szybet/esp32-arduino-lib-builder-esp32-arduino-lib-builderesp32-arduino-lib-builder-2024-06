@@ -31,24 +31,17 @@ docker build --no-cache -t eal:v1 .
 
 Enter the image
 ```
+rm -rf app/
 mkdir app/
+chmod 777 app/
+setfacl -Rdm u::rwx,g::rwx,o::rwx app/
 docker run -it -v $PWD/app:/app/ eal:v1 /bin/bash
 ```
 
 prepare a bit
 ```
-mkdir out
+mkdir -p out/package/
 git clone https://github.com/espressif/esp32-arduino-lib-builder.git
-```
-possible fixes for problems:
-
-edit this line in `build.sh`
-```
-python3 ./tools/gen_platformio_manifest.py -o "$TOOLS_JSON_OUT/" -s "$ibr" -c "$ic"
-```
-to this:
-```
-python3 ./tools/gen_platformio_manifest.py -o "$TOOLS_JSON_OUT" -s "$ibr" -c "$ic"
 ```
 
 Also this commit for `esp32-arduino-lib-builder` repo: `4b47bebf9d49e6fc96a71732360d91f00bf980ae`
@@ -56,11 +49,19 @@ Also this commit for `esp32-arduino-lib-builder` repo: `4b47bebf9d49e6fc96a71732
 Maybe do a clean build
 ```
 cd esp32-arduino-lib-builder/
-./build.sh -t esp32 -D default -c /app/out/ -A idf-release/v5.1 -i 2381f35409be734fff693c08a7f4b003096fb4c4 -e
+./build.sh -t esp32 -D default -c /app/out/ -e
 ```
-**Important: `-c /app/out` with `/` at the end of the path**
+or
+```
+./build.sh -t esp32 -D default -c /app/out/ -A idf-release/v5.1 -I release/v5.1 -e
+```
+**Important: `-c /app/out` with `/` at the end of the path???**
 
 If something crashes, check if it still runs
 ```
 docker ps
+```
+If git fails, maybe
+```
+git config --global core.compression 0
 ```
