@@ -44,18 +44,19 @@ mkdir -p out/package/
 git clone https://github.com/espressif/esp32-arduino-lib-builder.git
 ```
 
-Also this commit for `esp32-arduino-lib-builder` repo: `4b47bebf9d49e6fc96a71732360d91f00bf980ae`
-
 Maybe do a clean build
 ```
 cd esp32-arduino-lib-builder/
 ./build.sh -t esp32 -D default -c /app/out/ -e
 ```
 or
+
+Also MAYBE this commit for `esp32-arduino-lib-builder` repo: `4b47bebf9d49e6fc96a71732360d91f00bf980ae`
+
 ```
 ./build.sh -t esp32 -D default -c /app/out/ -A idf-release/v5.1 -I release/v5.1 -e
 ```
-**Important: `-c /app/out` with `/` at the end of the path???**
+**Important: `-c /app/out/` with `/` at the end of the path?**
 
 If something crashes, check if it still runs
 ```

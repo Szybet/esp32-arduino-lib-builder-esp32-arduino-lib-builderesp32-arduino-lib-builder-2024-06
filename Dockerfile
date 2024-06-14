@@ -25,6 +25,7 @@ RUN pacman -S --noconfirm \
     cmake \
     ninja \
     ccache \
-    jq
+    jq \
+    python-textual
 
 WORKDIR /app
