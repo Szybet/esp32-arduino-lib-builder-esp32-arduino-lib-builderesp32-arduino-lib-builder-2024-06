@@ -54,13 +54,6 @@ echo "uname -m" >> /usr/bin/arch
 chmod +x /usr/bin/arch
 ./build.sh -t esp32 -c /app/out/ -A idf-release/v4.4 -I release/v4.4
 ```
-or
-
-Also MAYBE this commit for `esp32-arduino-lib-builder` repo: `4b47bebf9d49e6fc96a71732360d91f00bf980ae`
-
-```
-./build.sh -t esp32 -c /app/out/ -A idf-release/v4.4 -I release/v4.4
-```
 **Important: `-c /app/out/` with `/` at the end of the path?**
 
 If something crashes, check if it still runs
