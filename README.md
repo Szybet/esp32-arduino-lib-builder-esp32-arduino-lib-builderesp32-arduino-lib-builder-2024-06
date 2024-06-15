@@ -31,7 +31,7 @@ docker build --no-cache -t eal:v1 .
 
 Enter the image
 ```
-rm -rf app/
+sudo rm -rf app/
 mkdir app/
 chmod 777 app/
 setfacl -Rdm u::rwx,g::rwx,o::rwx app/
@@ -42,19 +42,24 @@ prepare a bit
 ```
 mkdir -p out/package/
 git clone https://github.com/espressif/esp32-arduino-lib-builder.git
+cd esp32-arduino-lib-builder/
+git switch release/v4.4
 ```
 
-Maybe do a clean build
+Maybe build
 ```
-cd esp32-arduino-lib-builder/
-./build.sh -t esp32 -D default -c /app/out/ -e
+touch /usr/bin/arch
+echo '#!/bin/bash' >> /usr/bin/arch
+echo "uname -m" >> /usr/bin/arch
+chmod +x /usr/bin/arch
+./build.sh -t esp32 -c /app/out/ -A idf-release/v4.4 -I release/v4.4
 ```
 or
 
 Also MAYBE this commit for `esp32-arduino-lib-builder` repo: `4b47bebf9d49e6fc96a71732360d91f00bf980ae`
 
 ```
-./build.sh -t esp32 -D default -c /app/out/ -A idf-release/v5.1 -I release/v5.1 -e
+./build.sh -t esp32 -c /app/out/ -A idf-release/v4.4 -I release/v4.4
 ```
 **Important: `-c /app/out/` with `/` at the end of the path?**
 
@@ -65,4 +70,8 @@ docker ps
 If git fails, maybe
 ```
 git config --global core.compression 0
+```
+If git complains about safe dir...
+```
+git config --system --replace-all safe.directory '*'
 ```
