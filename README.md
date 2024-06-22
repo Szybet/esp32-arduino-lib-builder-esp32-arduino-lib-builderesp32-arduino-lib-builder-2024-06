@@ -8,18 +8,6 @@ sudo systemctl enable --now docker
 ```
 
 Then
-
-https://stackoverflow.com/questions/65896681/exec-docker-credential-desktop-exe-executable-file-not-found-in-path
-```
-You should delete the line with credsStore from ~/.docker/config.json or rename credsStore to credStore.
-```
-
-If you already created such image:
-```
-docker images
-docker rmi -f hash
-```
-Or
 ```
 docker rmi -f eal:v1
 ```
@@ -41,18 +29,13 @@ docker run -it -v $PWD/app:/app/ eal:v1 /bin/bash
 prepare a bit
 ```
 mkdir -p out/package/
-git clone https://github.com/espressif/esp32-arduino-lib-builder.git
+git clone https://github.com/Szybet/esp32-arduino-lib-builder.git
 cd esp32-arduino-lib-builder/
-git switch release/v4.4
 ```
 
 Maybe build
 ```
-touch /usr/bin/arch
-echo '#!/bin/bash' >> /usr/bin/arch
-echo "uname -m" >> /usr/bin/arch
-chmod +x /usr/bin/arch
-./build.sh -t esp32 -c /app/out/ -A idf-release/v4.4 -I release/v4.4
+./build.sh -t esp32 -c /app/out/ -e
 ```
 **Important: `-c /app/out/` with `/` at the end of the path?**
 
