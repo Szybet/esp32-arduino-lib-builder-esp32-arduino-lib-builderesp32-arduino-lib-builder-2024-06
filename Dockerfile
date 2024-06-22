@@ -22,6 +22,7 @@ RUN pacman -S --noconfirm \
     ccache \
     jq \
     python-textual \
-    nano
+    nano \
+    p7zip
 
 WORKDIR /app
