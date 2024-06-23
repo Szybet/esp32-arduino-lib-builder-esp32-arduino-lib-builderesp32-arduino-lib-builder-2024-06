@@ -12,3 +12,5 @@ ARCHIVE="app/esp32-arduino-lib-builder/dist/$ARCHIVE"
 
 rm -rf "$REPO_PATH"/*
 7z x "$ARCHIVE" -o"$REPO_PATH"
+mv "$REPO_PATH"/framework-arduinoespressif32/* "$REPO_PATH"/
+rm -rf "$REPO_PATH"/framework-arduinoespressif32
