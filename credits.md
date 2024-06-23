@@ -1,0 +1,2 @@
+- https://github.com/Jason2866/esp32-arduino-lib-builder
+- https://github.com/twischi/esp32-arduino-lib-builder

@@ -1,5 +1,5 @@
-# esp32-arduino-lib-builder-2024-06 
-Because the commands in that repo doesn't work, or on the esp-idf docs site...
+# inkwatchy-lib-builder
+Some guide, container for the fork here: https://github.com/Szybet/esp32-arduino-lib-builder
 
 Install on your host system: 
 ```
