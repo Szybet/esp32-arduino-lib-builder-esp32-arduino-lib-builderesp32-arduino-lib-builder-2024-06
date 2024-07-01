@@ -1,9 +1,2 @@
-Replace `app/esp32-arduino-lib-builder/configs/defconfig.esp32` with `sdkconfig-esp32`:
-
-Changes made to the file:
-```
-CONFIG_ESP_INT_WDT_TIMEOUT_MS=3000
-CONFIG_ESP_TASK_WDT_TIMEOUT_S=25
-CONFIG_INT_WDT_TIMEOUT_MS=3000
-CONFIG_TASK_WDT_TIMEOUT_S=25
-```
+- https://github.com/Szybet/arduinoespressif32-inkwatchy/commit/cdeef1b9f098091f6c5f31f2a1cae73b70751c58
+- https://github.com/Szybet/arduinoespressif32-inkwatchy/commit/29b6484a872385f939392f96c0829b3bc08d26a5
