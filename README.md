@@ -33,10 +33,18 @@ git clone https://github.com/Szybet/esp32-arduino-lib-builder.git
 cd esp32-arduino-lib-builder/
 ```
 
+Maybe apply sdkconfig
+```
+./apply_sdkconfig.sh
+```
+
 Maybe build
 ```
-./build.sh -t esp32 -c /app/out/ -e
+./build.sh -t esp32,esp32s3,esp32c6 -c /app/out/ -e -A tags/3.0.1 -I tags/v5.1.4
 ```
+
+./build.sh -t esp32,esp32s3,esp32c6 -c /app/out/ -e -A tags/3.0.1 -i d7b0a45ddbddbac53afb4fc28168f9f9259dbb79
+
 **Important: `-c /app/out/` with `/` at the end of the path?**
 
 If something crashes, check if it still runs
