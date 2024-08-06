@@ -40,10 +40,14 @@ Maybe apply sdkconfig
 
 Maybe build
 ```
-./build.sh -t esp32,esp32s3,esp32c6 -c /app/out/ -e -A tags/3.0.1 -I tags/v5.1.4
+./build.sh -t esp32,esp32s3,esp32c6 -c /app/out/ -e -A tags/3.0.4 -I tags/v5.3
 ```
 
-./build.sh -t esp32,esp32s3,esp32c6 -c /app/out/ -e -A tags/3.0.1 -i d7b0a45ddbddbac53afb4fc28168f9f9259dbb79
+If that won't work (it won't)
+https://github.com/espressif/esp-idf/commit/5c57dfe9490f85ff5c4e02febc598c1bb5ec7632
+```
+./build.sh -t esp32,esp32s3,esp32c6 -c /app/out/ -e -A tags/3.0.4 -i 5c57dfe9490f85ff5c4e02febc598c1bb5ec7632
+```
 
 **Important: `-c /app/out/` with `/` at the end of the path?**
 
